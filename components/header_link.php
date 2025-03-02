@@ -25,3 +25,10 @@
 <link rel="stylesheet" href="css/toastr.min.css">
 <!-- modernizr css -->
 <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const theme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', theme);
+});
+</script>

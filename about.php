@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-xs-12">
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.php">Home</a></li>
                             <li>/</li>
                             <li>About us</li>
                         </ul>
@@ -45,8 +45,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 col-xs-12">
-                    <div class="about-img mission-img h-250">
-                        <img src="assets/images/About-Mission.webp" />
+                    <div id="h-250" class="about-img mission-img h-250">
+                        <img src="assets/images/Vission.svg" />
                     </div>
                 </div>
                 <div class="col-md-6 col-xs-12">
@@ -76,8 +76,8 @@
     </section>
     <!-- about-area end -->
     <!-- praller-area start -->
-    <section class="prallex-area black-opacity parallax ptb-180 wow fadeInUp" data-speed="3"
-        data-bg-image="assets/images/bg/3.jpg">
+    <section class="prallex-area black-opacity-bottom parallax ptb-180 wow fadeInUp bg-center" data-speed="3"
+        data-bg-image="assets/images/bg/business-people-cafe.webp">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 col-xs-12">
@@ -217,6 +217,8 @@
     <script src="assets/js/plugins.js"></script>
     <!-- main js -->
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+
 </body>
 
 </html>

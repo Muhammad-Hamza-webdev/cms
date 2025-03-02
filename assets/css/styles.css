@@ -22,11 +22,34 @@
   margin: 0;
   padding: 0;
 }
+
+:root[data-theme="dark"] {
+  --background-color: #121212;
+  --text-color: #ddd;
+  --heading-color: #ccc;
+  --paragraph-color: #fff;
+  --paragraph-color-invert: #121212;
+  --border-color: #296dc1;
+  --box-shadow: rgba(255, 255, 255, 0.02) 0px 1px 3px 0px,
+    rgba(255, 255, 255, 0.15) 0px 0px 0px 1px;
+}
+
+:root[data-theme="light"] {
+  --background-color: #fff;
+  --text-color: #333;
+  --heading-color: #000;
+  --paragraph-color: #555;
+  --paragraph-color-invert: #fff;
+  --border-color: #121212;
+  --box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+}
+
 body {
-  color: #555;
   font-family: "Montserrat", sans-serif;
   line-height: 26px;
-  background: #fff;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 .floatleft {
   float: left;
@@ -43,7 +66,7 @@ img {
 }
 p {
   margin: 0px;
-  color: #555;
+  color: var(--paragraph-color);
 }
 h1,
 h2,
@@ -51,7 +74,7 @@ h3,
 h4,
 h5,
 h6 {
-  color: #333;
+  color: var(--heading-color);
   margin-bottom: 10px;
   margin-top: 0px;
   font-weight: 400;
@@ -71,7 +94,7 @@ a {
   -webkit-transition: all 0.3s;
   -moz-transition: all 0.3s;
   text-decoration: none;
-  color: #333;
+  color: var(--paragraph-color);
   font-size: 13px;
 }
 a:hover {
@@ -152,6 +175,14 @@ ul {
   height: 440px;
   /* background-color: rebeccapurple; */
 }
+.h-540 {
+  height: 540px;
+  /* background-color: rebeccapurple; */
+}
+.h-740 {
+  height: 740px;
+  /* background-color: rebeccapurple; */
+}
 
 .bg-1 {
   background: #fafafa;
@@ -178,17 +209,44 @@ ul {
   content: "";
   z-index: -9;
 }
+.black-opacity-bottom {
+  position: relative;
+  z-index: 9;
+}
+.black-opacity-bottom:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.8;
+  content: "";
+  z-index: -9;
+}
 .bg-img-1 {
   background: url(../images/bg/4.jpg) no-repeat center center / cover;
 }
+/* services hero section */
 .bg-img-2 {
-  background: url(../images/bg/5.jpg) no-repeat center center / cover;
+  background: url(../images/bg/services.webp) no-repeat center center / cover;
 }
+/* About Page */
 .bg-img-3 {
-  background: url(../images/bg/6.jpg) no-repeat center center / cover;
+  background: url(../images/bg/about-hero.webp) no-repeat center center / cover;
 }
+/* contact hero section */
 .bg-img-4 {
-  background: url(../images/bg/7.jpg) no-repeat center center / cover;
+  background: url(../images/bg/contact.webp) no-repeat center center / cover;
+}
+/* registeration hero section */
+.bg-img-reg {
+  background: url(../images/bg/registeration.webp) no-repeat center center /
+    cover;
+}
+/* login hero section */
+.bg-img-login {
+  background: url(../images/bg/login.webp) no-repeat center center / cover;
 }
 .bg-img-5 {
   background: url(../images/bg/8.jpg) no-repeat center center / cover;
@@ -768,6 +826,7 @@ ul {
   font-size: 13px;
   position: relative;
   z-index: 9;
+  color: #333;
   -webkit-transition-property: color;
   transition-property: color;
   -webkit-transition-duration: 0.5s;
@@ -894,7 +953,7 @@ ul {
   height: 90%;
   left: 5%;
   top: 5%;
-  border: 3px solid #fff;
+  /* border: 3px solid #fff; */
   opacity: 0.7;
   content: "";
   z-index: 9;
@@ -984,7 +1043,7 @@ ul {
   margin-bottom: 35px;
   font-size: 18px;
   font-style: italic;
-  color: #696969;
+  color: var(--text-color);
   line-height: 24px;
 }
 .service-wrap {
@@ -1546,6 +1605,7 @@ ul {
 .faq-wrap .panel-body p {
   margin-bottom: 0px;
   font-size: 16px;
+  color: #333;
 }
 .faq-wrap .panel-body {
   padding: 20px 20px;
@@ -1606,7 +1666,7 @@ ul {
   color: #000;
 }
 .form-style span {
-  color: #212121;
+  color: var(--text-color);
   display: block;
   font-size: 11px;
   text-transform: uppercase;
@@ -3409,3 +3469,79 @@ h3.blog-title::after {
   border-radius: 20px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
+.bg-center {
+  background-position: center center !important;
+}
+/* =======================================================Toggle Button Css Code start here======================================================= */
+label {
+  margin-bottom: 0px !important;
+}
+#theme-toggle-button {
+  font-size: 17px;
+  position: absolute;
+  display: inline-block;
+  width: 4em;
+  top: -10px;
+  left: -10px;
+  cursor: pointer;
+}
+
+#theme-toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+#container,
+#patches,
+#stars,
+#button,
+#sun,
+#moon,
+#cloud {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.25s;
+}
+
+#theme-toggle:checked + svg #container {
+  fill: #2b4360;
+}
+
+#theme-toggle:checked + svg #button {
+  transform: translate(28px, 2.333px);
+}
+
+#sun {
+  opacity: 1;
+}
+
+#theme-toggle:checked + svg #sun {
+  opacity: 0;
+}
+
+#moon {
+  opacity: 0;
+}
+
+#theme-toggle:checked + svg #moon {
+  opacity: 1;
+}
+
+#cloud {
+  opacity: 1;
+}
+
+#theme-toggle:checked + svg #cloud {
+  opacity: 0;
+}
+
+#stars {
+  opacity: 0;
+}
+
+#theme-toggle:checked + svg #stars {
+  opacity: 1;
+}
+
+/* =======================================================Toggle Button Css Code end here======================================================= */

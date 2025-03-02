@@ -409,14 +409,24 @@
   }
 }
 @media (max-width: 550px) {
-  .h-440 {
+  .h-440,
+  .h-540 {
     height: 280px;
+  }
+  .m-0 {
+    margin: 0;
+  }
+  .h-740 {
+    height: 400px;
   }
   .d-flex {
     padding: 0;
   }
   .h-250 {
     height: 250px !important;
+  }
+  #h-250 {
+    height: 360px !important;
   }
   .ptb-140 {
     padding: 70px 0 !important;
