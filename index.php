@@ -276,7 +276,7 @@ if (isset($_REQUEST['msg_btn'])) {
                 <div class="col-md-6 col-xs-12 fadeInRight wow">
                     <div class="faq-form form-style">
                         <div class="cf-msg"></div>
-                        <form action="mail.php" method="post" id="cf">
+                        <form method="post" id="cf">
                             <div class="row">
                                 <div class="col-xs-12">
                                     <span>Name</span>

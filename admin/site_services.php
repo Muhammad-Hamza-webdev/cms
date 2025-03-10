@@ -56,6 +56,8 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>New User Adding | Complain Managment System GCUF main Campus</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" type="image/png" href="assets/images/Hajvery-University-logo.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
@@ -220,7 +222,7 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
                                                     } else {
                                                         ?>
                                             <tr>
-                                                <td colspan="4">
+                                                <td colspan="6">
                                                     <center>No Record Found</center>
                                                 </td>
                                             </tr>

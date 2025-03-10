@@ -91,10 +91,10 @@ if (isset($_REQUEST['sub_btn'])) {
                         <div class="cf-msg"></div>
                         <form method="post" id="cf">
                             <div class="row">
-                                <div class="col-xs-12">
+                                <div class="col-xs-12" style="padding: 0 15px 18px 15px;">
                                     <select class="form-control" id="department" name="department"
                                         style="width: 100%; text-indent: 5px;  height: 45px;background-color: white;">
-                                        <option value="0">Select Department</option>
+                                        <option>Select Department</option>
                                         <?php
                                             $query = "SELECT * FROM `departments` where `dept_status`=1";
                                             $query = mysqli_query($con, $query);
@@ -105,7 +105,7 @@ if (isset($_REQUEST['sub_btn'])) {
                                             }
                                             ?>
                                     </select>
-                                </div><br><br>
+                                </div>
                                 <div class="col-sm-6 col-xs-12">
                                     <input type="text" placeholder="Frist Name" id="fname" name="fname">
                                 </div>
