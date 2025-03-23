@@ -22,6 +22,10 @@ include('connection/connection.php');
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link rel="stylesheet" href="../css/toastr.min.css">
     <title>Dash Board | Complain Managment System GCUF Sahiwal Campus</title>
+    <?php
+   include('components/custom-header.php');
+    ?>
+
 </head>
 
 <body>
@@ -823,6 +827,20 @@ include('connection/connection.php');
         "hideMethod": "fadeOut"
     }
     toastr.success('Login Successfuly!');
+    </script>
+    <?php
+        }
+        ?>
+    <?php
+        if (isset($_GET['update_success'])) {
+            ?>
+    <script type="text/javascript">
+    toastr.options = {
+        "closeButton": true,
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    toastr.success('Updated Successfuly!');
     </script>
     <?php
         }

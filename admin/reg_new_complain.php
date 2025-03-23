@@ -36,6 +36,9 @@ if ($_SESSION['USERTYPE'] == 1) {
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../css/toastr.min.css">
+    <?php
+   include('components/custom-header.php');
+    ?>
 </head>
 
 <body>

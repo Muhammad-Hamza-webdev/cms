@@ -33,6 +33,10 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
 //            die($account_data);
             $result2 = mysqli_query($con, $account_data);
 
+            // Insertion into accounts_img table with default NULL for pict
+            $account_data_img = "INSERT INTO accounts_img(`person_id`,`pict`) VALUES ('$max_id', NULL)";
+            $result3 = mysqli_query($con, $account_data_img);
+
             //redirect
             header('location:add_new_admin.php?account-registered=1');
         }
@@ -55,6 +59,9 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="../css/toastr.min.css">
+    <?php
+   include('components/custom-header.php');
+    ?>
 </head>
 
 <body>

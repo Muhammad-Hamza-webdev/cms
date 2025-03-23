@@ -6889,11 +6889,23 @@ Media Query
     border-bottom: 1px solid #dee2e6;
     border-right: transparent !important;
   }
+  .navbar-brand {
+    padding: 10px 0;
+  }
+  .user-img{
+    width: 130px;
+  }
 }
 
 /* Small Devices, Tablets */
 
 @media only screen and (max-width: 768px) {
+  .navbar-brand {
+    padding: 10px 0;
+  }
+  .user-img{
+    width: 130px;
+  }
   .dashboard-content {
     padding: 20px 20px 60px 20px;
   }
@@ -6965,6 +6977,12 @@ Media Query
 /* Extra Small Devices, Phones */
 
 @media only screen and (max-width: 480px) {
+  .navbar-brand {
+    padding: 10px 0;
+  }
+  .user-img{
+    width: 130px;
+  }
   .dashboard-content {
     padding: 20px 20px 60px 20px;
   }
@@ -7069,6 +7087,12 @@ Media Query
 
 /* Custom, iPhone Retina */
 @media only screen and (max-width: 320px) {
+  .navbar-brand {
+    padding: 10px 0;
+  }
+  .user-img{
+    width: 130px;
+  }
 }
 
 .user-name {
@@ -7078,4 +7102,7 @@ Media Query
   font-weight: 500;
   color: #3d405c;
   font-size: 24px;
+}
+.user-img{
+  width: 190px;
 }

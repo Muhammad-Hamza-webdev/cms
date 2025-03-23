@@ -22,6 +22,9 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
     <link rel="stylesheet" type="text/css" href="assets/vendor/datatables/css/select.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
     <link rel="stylesheet" href="../css/toastr.min.css">
+    <?php
+   include('components/custom-header.php');
+    ?>
 </head>
 
 <body>

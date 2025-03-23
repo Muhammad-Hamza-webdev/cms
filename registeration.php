@@ -31,6 +31,10 @@ if (isset($_REQUEST['sub_btn'])) {
         $account_data = "INSERT INTO accounts(`person_id`,`password`,`user_type`,`department_id`) values('$max_id','" . $_REQUEST['c_pass'] . "','1','$dept')";
         $result2 = mysqli_query($con, $account_data);
 
+        // Insertion into accounts_img table with default NULL for pict
+        $account_data_img = "INSERT INTO accounts_img(`person_id`,`pict`) VALUES ('$max_id', NULL)";
+        $result3 = mysqli_query($con, $account_data_img);
+
         //redirect
         header('location:login.php?account-registered=1');
     }

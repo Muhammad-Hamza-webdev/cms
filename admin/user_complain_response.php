@@ -34,6 +34,9 @@ if ($_SESSION['USERTYPE'] == 1 || $_SESSION['USERTYPE'] == 3) {
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
     <link rel="stylesheet" href="assets/libs/css/style.css">
+    <?php
+   include('components/custom-header.php');
+    ?>
 </head>
 
 <body>

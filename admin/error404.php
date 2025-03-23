@@ -11,6 +11,9 @@
     <!-- Font Awesome Icon -->
     <link type="text/css" rel="stylesheet" href="assets/libs/css/font-awesome.min_1.css" />
     <link type="text/css" rel="stylesheet" href="assets/libs/css/style_404.css" />
+    <?php
+   include('components/custom-header.php');
+    ?>
 </head>
 
 <body>
