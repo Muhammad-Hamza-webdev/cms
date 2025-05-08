@@ -125,12 +125,20 @@ if (isset($_REQUEST['sub_btn'])) {
                                 <div class="col-xs-12">
                                     <input type="number" placeholder="Enter Phone" name="phone" id="phone">
                                 </div>
-                                <div class="col-sm-6 col-xs-12">
+                                <div class="col-sm-6 col-xs-12 position-relative">
                                     <input type="password" placeholder="Enter Password" name="pass" id="pass">
+                                    <span class="toggle-password" onclick="togglePassword('pass', 'togglePassIcon')">
+                                        <i class="fa-solid fa-eye" id="togglePassIcon"></i>
+                                    </span>
                                 </div>
-                                <div class="col-sm-6 col-xs-12">
-                                    <input type="password" placeholder="Confirm Passworde" name="c_pass" id="c_pass">
+
+                                <div class="col-sm-6 col-xs-12 position-relative">
+                                    <input type="password" placeholder="Confirm Password" name="c_pass" id="c_pass">
+                                    <span class="toggle-password" onclick="togglePassword('c_pass', 'toggleCPassIcon')">
+                                        <i class="fa-solid fa-eye" id="toggleCPassIcon"></i>
+                                    </span>
                                 </div>
+
                                 <div class="col-xs-12">
                                     <textarea class="contact-textarea" placeholder="Enter Address" id="address"
                                         name="address"></textarea>
@@ -197,6 +205,17 @@ if (isset($_REQUEST['sub_btn'])) {
     <!-- main js -->
     <script src="assets/js/scripts.js"></script>
     <script src="assets/js/dark-mode.js"></script>
+    <script>
+    function togglePassword(inputId, iconId) {
+        const input = document.getElementById(inputId);
+        const icon = document.getElementById(iconId);
+        const isPassword = input.type === "password";
+
+        input.type = isPassword ? "text" : "password";
+        icon.classList.toggle("fa-eye");
+        icon.classList.toggle("fa-eye-slash");
+    }
+    </script>
 
     <script>
     function valid() {

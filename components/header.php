@@ -68,7 +68,7 @@
                                 </div>
                                 <div class="contact-info">
                                     <p>MAIL US</p>
-                                    <span>info@gcufcms.com</span>
+                                    <span>mawaleed09@gmail.com</span>
                                 </div>
                             </li>
                             <li>
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="contact-info">
                                     <p>PHONE US</p>
-                                    <span> +92300-0000000</span>
+                                    <span> 03019606464</span>
                                 </div>
                             </li>
                         </ul>

@@ -28,6 +28,7 @@ if (isset($_REQUEST['login_btn'])) {
     <?php
         include ('./components/header_link.php');
         ?>
+
 </head>
 
 <body>
@@ -85,10 +86,15 @@ if (isset($_REQUEST['login_btn'])) {
                                     <input type="text" placeholder="User Name" id="name" name="name"
                                         class="<?php echo (isset($_GET['msg_error']) ? 'error-border' : ''); ?>">
                                 </div>
-                                <div class="col-sm-12 col-xs-12">
+                                <div class="col-sm-12 col-xs-12 position-relative">
                                     <input type="password" placeholder="Enter Password" id="pass" name="pass"
                                         class="<?php echo (isset($_GET['msg_error']) ? 'error-border' : ''); ?>">
+                                    <span class="toggle-password" onclick="togglePassword()">
+                                        <i class="fa-solid fa-eye" id="toggleIcon"></i>
+                                    </span>
                                 </div>
+
+
                                 <div class="col-xs-12">
                                     <button type="submit" name="login_btn" id="login_btn" onclick=""
                                         class="cont-submit btn-contact btn-style">Login</button>
@@ -147,6 +153,20 @@ if (isset($_REQUEST['login_btn'])) {
     <script src="js/toastr.min.js"></script>
     <!-- main js -->
     <script src="assets/js/scripts.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+    <script>
+    function togglePassword() {
+        const passInput = document.getElementById("pass");
+        const toggleIcon = document.getElementById("toggleIcon");
+        const isPassword = passInput.type === "password";
+
+        passInput.type = isPassword ? "text" : "password";
+        toggleIcon.classList.toggle("fa-eye");
+        toggleIcon.classList.toggle("fa-eye-slash");
+    }
+    </script>
+
+
     <script>
     function valid() {
         var u_name, pass, temp;

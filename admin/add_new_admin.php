@@ -58,10 +58,26 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="../css/toastr.min.css">
     <?php
    include('components/custom-header.php');
     ?>
+    <style>
+    .position-relative {
+        position: relative;
+    }
+
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 16px;
+        color: #555;
+    }
+    </style>
 </head>
 
 <body>
@@ -174,17 +190,26 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
                                     <div class="form-group row">
                                         <label class="col-12 col-sm-3 col-form-label text-sm-right">User
                                             Password</label>
-                                        <div class="col-12 col-sm-8 col-lg-6">
+                                        <div class="col-12 col-sm-8 col-lg-6 position-relative">
                                             <input type="password" class="form-control" id="pass" name="pass">
+                                            <span class="toggle-password"
+                                                onclick="togglePassword('pass', 'togglePassIcon')">
+                                                <i class="fa-solid fa-eye" id="togglePassIcon"></i>
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label class="col-12 col-sm-3 col-form-label text-sm-right">Confirm
                                             Password</label>
-                                        <div class="col-12 col-sm-8 col-lg-6">
+                                        <div class="col-12 col-sm-8 col-lg-6 position-relative">
                                             <input type="password" class="form-control" id="c_pass" name="c_pass">
+                                            <span class="toggle-password"
+                                                onclick="togglePassword('c_pass', 'toggleCPassIcon')">
+                                                <i class="fa-solid fa-eye" id="toggleCPassIcon"></i>
+                                            </span>
                                         </div>
                                     </div>
+
                                     <div class="form-group row">
                                         <label class="col-12 col-sm-3 col-form-label text-sm-right">User Address</label>
                                         <div class="col-12 col-sm-8 col-lg-6">
@@ -237,6 +262,18 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
             include 'components/footerjs.php';
             ?>
     <script src="../js/toastr.min.js"></script>
+    <script>
+    function togglePassword(inputId, iconId) {
+        const input = document.getElementById(inputId);
+        const icon = document.getElementById(iconId);
+        const isPassword = input.type === 'password';
+
+        input.type = isPassword ? 'text' : 'password';
+        icon.classList.toggle('fa-eye');
+        icon.classList.toggle('fa-eye-slash');
+    }
+    </script>
+
     <script>
     $('#form').parsley();
     </script>

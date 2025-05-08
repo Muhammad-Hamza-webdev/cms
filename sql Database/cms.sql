@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 03, 2020 at 07:59 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.2
+-- Generation Time: May 09, 2025 at 12:23 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -32,7 +31,7 @@ CREATE TABLE `about_us` (
   `about_us_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
   `description` varchar(1000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -47,16 +46,34 @@ CREATE TABLE `accounts` (
   `department_id` smallint(3) NOT NULL,
   `user_type` smallint(3) NOT NULL COMMENT '1=user 2=admin 3=manageer',
   `status` smallint(3) NOT NULL DEFAULT 0
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `accounts`
 --
 
 INSERT INTO `accounts` (`account_id`, `person_id`, `password`, `department_id`, `user_type`, `status`) VALUES
-(1, 1, 'admin123', 1, 2, 1),
-(2, 2, '91d428aa', 1, 1, 1),
-(3, 3, 'qwerty123', 1, 1, 1);
+(1, 1, 'admin123', 0, 2, 1),
+(2, 2, 'Sohaibzafar481739', 2, 1, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accounts_img`
+--
+
+CREATE TABLE `accounts_img` (
+  `user_img_id` int(11) NOT NULL,
+  `person_id` int(11) NOT NULL,
+  `pict` varchar(5000) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `accounts_img`
+--
+
+INSERT INTO `accounts_img` (`user_img_id`, `person_id`, `pict`) VALUES
+(1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -72,7 +89,7 @@ CREATE TABLE `complaint` (
   `date` date DEFAULT NULL,
   `com_status` smallint(3) NOT NULL DEFAULT 1 COMMENT '1=pending 2=Inprocess 3=completed',
   `feedback_status` tinyint(1) DEFAULT 0 COMMENT '1=given 0=panding'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -84,16 +101,7 @@ CREATE TABLE `complain_category` (
   `category_id` mediumint(6) NOT NULL,
   `category` varchar(70) NOT NULL,
   `compl_status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `complain_category`
---
-
-INSERT INTO `complain_category` (`category_id`, `category`, `compl_status`) VALUES
-(1, 'Fee Complain', 1),
-(2, 'Teacher Complain', 1),
-(3, 'Student Disputss', 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -106,7 +114,7 @@ CREATE TABLE `complain_response` (
   `complaint_id` int(11) NOT NULL,
   `description` varchar(1999) NOT NULL,
   `file` varchar(200) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -120,7 +128,7 @@ CREATE TABLE `contact_us` (
   `email` varchar(100) NOT NULL,
   `subject` varchar(500) DEFAULT NULL,
   `message` varchar(50000) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -132,18 +140,21 @@ CREATE TABLE `departments` (
   `department_id` smallint(3) NOT NULL,
   `department` varchar(50) NOT NULL,
   `dept_status` tinyint(1) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `departments`
 --
 
 INSERT INTO `departments` (`department_id`, `department`, `dept_status`) VALUES
-(1, 'Computer Scrience', 1),
-(2, 'Chemistry', 1),
-(3, 'Physics', 1),
-(4, 'Phycology', 1),
-(5, 'Maths', 1);
+(1, 'Business Adminstration', 1),
+(2, 'Computer sciences', 1),
+(3, 'Fashion and textile design', 1),
+(4, 'Engineering', 1),
+(5, 'Pharmacy', 1),
+(6, 'Humanities and social sciences', 1),
+(7, 'Language and literature', 1),
+(8, 'Doctor of Physical Therapy (DPT)', 1);
 
 -- --------------------------------------------------------
 
@@ -160,16 +171,15 @@ CREATE TABLE `persons` (
   `address` varchar(150) NOT NULL,
   `gender` varchar(1) NOT NULL,
   `phone` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `persons`
 --
 
 INSERT INTO `persons` (`person_id`, `person_name`, `last_name`, `father_name`, `person_email`, `address`, `gender`, `phone`) VALUES
-(1, 'M', 'Hamza', 'Iftikhar', 'admin@admin.com', 'Chack 86/6r', '1', '03000000000'),
-(2, 'M Hamza', 'Ifitkhar', 'Iftikhar Ali', 'hamza@gmail.com', 'chack86/6r', '1', '03000000000'),
-(3, 'Tahir', 'iqbal', 'Muhammad Iqbal', 'tahir@gmail.com', 'Shadman town 86/6r', '1', '03000000000');
+(1, 'admin', 'admin', 'unknown', 'admin@admin.com', 'unknown', '1', '0'),
+(2, 'Sohaib', 'Zafar', 'Zafar', 'Sohaibzafar481739@gmail.com', 'Sohaib zafar', '1', '03019606464');
 
 -- --------------------------------------------------------
 
@@ -180,7 +190,7 @@ INSERT INTO `persons` (`person_id`, `person_name`, `last_name`, `father_name`, `
 CREATE TABLE `review` (
   `review_id` int(11) NOT NULL,
   `review` varchar(150) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -193,7 +203,7 @@ CREATE TABLE `review_user_complaint_link` (
   `person_id` int(11) NOT NULL,
   `complaint_id` int(11) NOT NULL,
   `review_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -207,7 +217,7 @@ CREATE TABLE `services` (
   `description` varchar(1000) NOT NULL,
   `pict` varchar(1500) NOT NULL,
   `ser_status` tinyint(4) NOT NULL DEFAULT 1
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
 
@@ -219,7 +229,7 @@ CREATE TABLE `user_complaint_link` (
   `link_id` int(11) NOT NULL,
   `person_id` int(11) NOT NULL,
   `complaint_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Indexes for dumped tables
@@ -237,6 +247,12 @@ ALTER TABLE `about_us`
 ALTER TABLE `accounts`
   ADD PRIMARY KEY (`account_id`),
   ADD KEY `person_id` (`person_id`);
+
+--
+-- Indexes for table `accounts_img`
+--
+ALTER TABLE `accounts_img`
+  ADD PRIMARY KEY (`user_img_id`);
 
 --
 -- Indexes for table `complaint`
@@ -314,7 +330,13 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `accounts_img`
+--
+ALTER TABLE `accounts_img`
+  MODIFY `user_img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `complaint`
@@ -326,7 +348,7 @@ ALTER TABLE `complaint`
 -- AUTO_INCREMENT for table `complain_category`
 --
 ALTER TABLE `complain_category`
-  MODIFY `category_id` mediumint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `category_id` mediumint(6) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `complain_response`
@@ -344,13 +366,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `department_id` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `department_id` smallint(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `review`

@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="assets/css/owl.carousel.css">
 <!-- font-awesome v4.6.3 css -->
 <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <!-- magnific-popup.css -->
 <link rel="stylesheet" href="assets/css/magnific-popup.css">
 <!-- slicknav.min.css -->
@@ -32,3 +34,18 @@ document.addEventListener('DOMContentLoaded', () => {
     document.documentElement.setAttribute('data-theme', theme);
 });
 </script>
+<style>
+.toggle-password {
+    position: absolute;
+    right: 20px;
+    top: 36%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px !important;
+    color: #333;
+}
+
+.position-relative {
+    position: relative;
+}
+</style>
