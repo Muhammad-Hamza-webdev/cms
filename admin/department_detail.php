@@ -37,7 +37,7 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>New User Adding | Complain Managment System GCUF main Campus</title>
+    <title>New User Adding | Complain Managment System Hajvery University</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">

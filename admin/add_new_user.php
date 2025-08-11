@@ -2,6 +2,7 @@
 include('connection/connection.php');
 if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
     if (isset($_REQUEST['sub_btn'])) {
+        $roll_no = $_POST['roll_no'];
         $fnam = $_POST['fname'];
         $lnam = $_POST['lname'];
         $fathernam = $_POST['fathername'];
@@ -21,7 +22,7 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
         } else {
 
 
-            $qy = "insert into persons(person_name, last_name, father_name, person_email, address, gender,phone) values('$fnam','$lnam','$fathernam','$mail','$add','$gen','$phone')";
+            $qy = "insert into persons(student_roll, person_name, last_name, father_name, person_email, address, gender,phone) values('$roll_no','$fnam','$lnam','$fathernam','$mail','$add','$gen','$phone')";
             mysqli_query($con, $qy);
 
             //get max person id
@@ -50,7 +51,7 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>New User Adding | Complain Managment System GCUF main Campus</title>
+    <title>New User Adding | Complain Managment System Hajvery University</title>
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/images/Hajvery-University-logo.png">
     <!-- Bootstrap CSS -->
@@ -156,6 +157,12 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
                                     <?php
                                             }
                                             ?>
+                                    <div class="form-group row">
+                                        <label class="col-12 col-sm-3 col-form-label text-sm-right">Roll No</label>
+                                        <div class="col-12 col-sm-8 col-lg-6">
+                                            <input type="text" class="form-control" name="roll_no" id="roll_no">
+                                        </div>
+                                    </div>
                                     <div class="form-group row">
                                         <label class="col-12 col-sm-3 col-form-label text-sm-right">First Name</label>
                                         <div class="col-12 col-sm-8 col-lg-6">

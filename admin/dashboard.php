@@ -21,7 +21,7 @@ include('connection/connection.php');
     <link rel="stylesheet" href="assets/vendor/charts/c3charts/c3.css">
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <link rel="stylesheet" href="../css/toastr.min.css">
-    <title>Dash Board | Complain Managment System GCUF Sahiwal Campus</title>
+    <title>Dash Board | Complain Managment System Hajvery University</title>
     <?php
    include('components/custom-header.php');
     ?>
@@ -81,7 +81,7 @@ include('connection/connection.php');
                                             <li class="breadcrumb-item"><a href="dashboard.php"
                                                     class="breadcrumb-link">Dashboard</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Complain Managment
-                                                System GCUF</li>
+                                                System Hajvery University</li>
                                             <?php
                                                     $query = "SELECT * FROM `departments` where `department_id`=" . $_SESSION['DEPTID'];
                                                     $result = mysqli_query($con, $query);
@@ -342,7 +342,7 @@ include('connection/connection.php');
                                             <li class="breadcrumb-item"><a href="dashboard.php"
                                                     class="breadcrumb-link">Dashboard</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Complain Managment
-                                                System GCUF</li>
+                                                System Hajvery University</li>
                                         </ol>
                                     </nav>
                                 </div>
@@ -586,7 +586,7 @@ include('connection/connection.php');
                                             <li class="breadcrumb-item"><a href="dashboard.php"
                                                     class="breadcrumb-link">Dashboard</a></li>
                                             <li class="breadcrumb-item active" aria-current="page">Complain Managment
-                                                System GCUF</li>
+                                                System Hajvery University</li>
                                         </ol>
                                     </nav>
                                 </div>

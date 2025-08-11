@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2025 at 12:23 AM
+-- Generation Time: May 30, 2025 at 07:11 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -53,8 +53,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`account_id`, `person_id`, `password`, `department_id`, `user_type`, `status`) VALUES
-(1, 1, 'admin123', 0, 2, 1),
-(2, 2, 'Sohaibzafar481739', 2, 1, 1);
+(1, 1, 'admin123', 0, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -102,6 +101,16 @@ CREATE TABLE `complain_category` (
   `category` varchar(70) NOT NULL,
   `compl_status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `complain_category`
+--
+
+INSERT INTO `complain_category` (`category_id`, `category`, `compl_status`) VALUES
+(1, 'Fee', 1),
+(2, 'Washroom', 1),
+(3, 'water supply', 1),
+(4, 'Teacher', 1);
 
 -- --------------------------------------------------------
 
@@ -178,8 +187,7 @@ CREATE TABLE `persons` (
 --
 
 INSERT INTO `persons` (`person_id`, `person_name`, `last_name`, `father_name`, `person_email`, `address`, `gender`, `phone`) VALUES
-(1, 'admin', 'admin', 'unknown', 'admin@admin.com', 'unknown', '1', '0'),
-(2, 'Sohaib', 'Zafar', 'Zafar', 'Sohaibzafar481739@gmail.com', 'Sohaib zafar', '1', '03019606464');
+(1, 'admin', 'admin', 'unknown', 'admin@admin.com', 'unknown', '1', '0');
 
 -- --------------------------------------------------------
 
@@ -330,7 +338,7 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `accounts_img`
@@ -348,7 +356,7 @@ ALTER TABLE `complaint`
 -- AUTO_INCREMENT for table `complain_category`
 --
 ALTER TABLE `complain_category`
-  MODIFY `category_id` mediumint(6) NOT NULL AUTO_INCREMENT;
+  MODIFY `category_id` mediumint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `complain_response`
@@ -372,7 +380,7 @@ ALTER TABLE `departments`
 -- AUTO_INCREMENT for table `persons`
 --
 ALTER TABLE `persons`
-  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `person_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `review`

@@ -9,7 +9,7 @@ if ($_SESSION['USERTYPE'] == 1) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>All Complians | Complain Managment System GCUF Sahiwal Campus</title>
+    <title>All Complians | Complain Managment System Hajvery University</title>
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/images/Hajvery-University-logo.png">
     <!-- Bootstrap CSS -->

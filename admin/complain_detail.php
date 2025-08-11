@@ -14,7 +14,7 @@ if ($_SESSION['USERTYPE'] == 2 || $_SESSION['USERTYPE'] == 3) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Complain Detail | Complain Managment System GCUF Main Campus</title>
+    <title>Complain Detail | Complain Managment System Hajvery University</title>
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="assets/images/Hajvery-University-logo.png">
     <!-- Bootstrap CSS -->

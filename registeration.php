@@ -1,6 +1,7 @@
 <?php
 include('connection/connection.php');
 if (isset($_REQUEST['sub_btn'])) {
+    $roll_no = $_POST['roll_no'];
     $fnam = $_POST['fname'];
     $lnam = $_POST['lname'];
     $fathernam = $_POST['fathername'];
@@ -16,7 +17,8 @@ if (isset($_REQUEST['sub_btn'])) {
     } else {
 
 
-        $qy = "insert into persons(person_name, last_name, father_name, person_email, address, gender,phone) values('$fnam','$lnam','$fathernam','$mail','$add','$gen','$phone')";
+        $qy = "insert into persons(student_roll, person_name, last_name, father_name, person_email, address, gender,phone) values('$roll_no','$fnam','$lnam','$fathernam','$mail','$add','$gen','$phone')";
+        
         mysqli_query($con, $qy);
 
         //get max person id
@@ -109,6 +111,9 @@ if (isset($_REQUEST['sub_btn'])) {
                                             }
                                             ?>
                                     </select>
+                                </div>
+                                <div class="col-xs-12">
+                                    <input type="number" placeholder="Roll No" id="roll_no" name="roll_no">
                                 </div>
                                 <div class="col-sm-6 col-xs-12">
                                     <input type="text" placeholder="Frist Name" id="fname" name="fname">

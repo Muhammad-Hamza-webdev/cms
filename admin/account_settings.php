@@ -1,9 +1,10 @@
 <?php
 include('connection/connection.php');
-$queryPerson = 'SELECT * FROM `persons` AS p 
-INNER JOIN `accounts` as a on p.`person_id`=a.`person_id` 
-INNER JOIN `accounts_img` AS ai on p.`person_id`=ai.`user_img_id` 
-WHERE p.`person_id`='. $_SESSION['USERID'];
+$queryPerson = 'SELECT p.*, a.user_type, a.password, a.department_id, ai.pict 
+                FROM `persons` AS p 
+                INNER JOIN `accounts` AS a ON p.`person_id` = a.`person_id` 
+                INNER JOIN `accounts_img` AS ai ON p.`person_id` = ai.`user_img_id` 
+                WHERE p.`person_id` = ' . $_SESSION['USERID'];
 $queryPerson = mysqli_query($con, $queryPerson);
 $rowPerson = mysqli_fetch_array($queryPerson);
 
@@ -18,9 +19,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $gen = $_POST['gender'];
     $dept = $_POST['department'];
     $phone = $_POST['phone'];
-    $password = $_POST['c_pass']; // Consider hashing if not already hashed
+    $password = $_POST['c_pass'];
+    $roll_no = $_POST['roll_no']; // Get the roll number from form
 
-    // Update user details
+    // Update user details including student_roll
     $updateUserQuery = "UPDATE persons SET 
         person_name = ?, 
         last_name = ?, 
@@ -28,11 +30,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         person_email = ?, 
         address = ?, 
         gender = ?, 
-        phone = ?
+        phone = ?,
+        student_roll = ? 
     WHERE person_id = ?";
     
     $stmt = mysqli_prepare($con, $updateUserQuery);
-    mysqli_stmt_bind_param($stmt, "sssssssi", $fnam, $lnam, $fathernam, $mail, $add, $gen, $phone, $userId);
+    // Add one more "s" for the student_roll parameter
+    mysqli_stmt_bind_param($stmt, "ssssssssi", $fnam, $lnam, $fathernam, $mail, $add, $gen, $phone, $roll_no, $userId);
     mysqli_stmt_execute($stmt);
     mysqli_stmt_close($stmt);
 
@@ -196,6 +200,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                             <div class="invalid-feedback">
                                                 Please enter a select department.
                                             </div>
+                                        </div>
+                                        <!-- Roll No. Field -->
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-t-10">
+                                            <label for="roll_no">Roll No.</label>
+                                            <input type="text" class="form-control" id="roll_no" name="roll_no"
+                                                placeholder="Roll No" value="<?= $rowPerson['student_roll'] ?>"
+                                                <?= ($rowPerson['user_type'] == 2) ? 'disabled' : '' ?> required>
+                                            <div class="valid-feedback">Looks good!</div>
+                                            <div class="invalid-feedback">Please enter a roll number.</div>
                                         </div>
                                         <!-- field -->
                                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-t-10">
