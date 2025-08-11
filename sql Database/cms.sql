@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 30, 2025 at 07:11 PM
+-- Generation Time: Aug 11, 2025 at 11:05 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -53,7 +53,7 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`account_id`, `person_id`, `password`, `department_id`, `user_type`, `status`) VALUES
-(1, 1, 'admin123', 0, 2, 1);
+(1, 1, 'admin123', 1, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -109,7 +109,7 @@ CREATE TABLE `complain_category` (
 INSERT INTO `complain_category` (`category_id`, `category`, `compl_status`) VALUES
 (1, 'Fee', 1),
 (2, 'Washroom', 1),
-(3, 'water supply', 1),
+(3, 'Water Supply', 1),
 (4, 'Teacher', 1);
 
 -- --------------------------------------------------------
@@ -157,12 +157,12 @@ CREATE TABLE `departments` (
 
 INSERT INTO `departments` (`department_id`, `department`, `dept_status`) VALUES
 (1, 'Business Adminstration', 1),
-(2, 'Computer sciences', 1),
-(3, 'Fashion and textile design', 1),
+(2, 'Computer Sciences', 1),
+(3, 'Fashion and Textile Design', 1),
 (4, 'Engineering', 1),
 (5, 'Pharmacy', 1),
-(6, 'Humanities and social sciences', 1),
-(7, 'Language and literature', 1),
+(6, 'Humanities and Social Sciences', 1),
+(7, 'Language and Literature', 1),
 (8, 'Doctor of Physical Therapy (DPT)', 1);
 
 -- --------------------------------------------------------
@@ -173,6 +173,7 @@ INSERT INTO `departments` (`department_id`, `department`, `dept_status`) VALUES
 
 CREATE TABLE `persons` (
   `person_id` int(11) NOT NULL,
+  `student_roll` int(11) DEFAULT 0,
   `person_name` varchar(50) NOT NULL,
   `last_name` varchar(50) NOT NULL,
   `father_name` varchar(50) NOT NULL,
@@ -186,8 +187,8 @@ CREATE TABLE `persons` (
 -- Dumping data for table `persons`
 --
 
-INSERT INTO `persons` (`person_id`, `person_name`, `last_name`, `father_name`, `person_email`, `address`, `gender`, `phone`) VALUES
-(1, 'admin', 'admin', 'unknown', 'admin@admin.com', 'unknown', '1', '0');
+INSERT INTO `persons` (`person_id`, `student_roll`, `person_name`, `last_name`, `father_name`, `person_email`, `address`, `gender`, `phone`) VALUES
+(1, 0, 'admin', 'admin', 'unknown', 'admin@admin.com', 'unknown', '1', '0');
 
 -- --------------------------------------------------------
 
